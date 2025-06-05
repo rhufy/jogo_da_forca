@@ -98,11 +98,7 @@ http://localhost:5000
 }
 ```
 
-## ✅ TODO
 
-- Adicionar contagem de partidas vencidas
-- Interface mais estilizada com CSS customizado
-- Responsividade para mobile
 
 ## 📄 Licença
 
