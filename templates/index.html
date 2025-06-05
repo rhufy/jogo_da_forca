@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<div class="text-center mt-5 fade-in">
+  <h2 class="mb-3">Bem-vindo ao Jogo da Forca</h2>
+  <p class="lead mb-4">Adivinhe a palavra!</p>
+  <form method="post" class="bg-dark p-4 rounded shadow-lg w-50 mx-auto">
+    <div class="container mb-3">
+      <label for="name" class="form-label text-white">Nome:</label>
+      <input type="text" id="name" name="name"
+             class="form-control bg-dark text-white"
+             placeholder="Coloque o seu nome aqui">
+      <button type="submit" class="btn btn-primary mt-4 w-100">Jogar</button>
+    </div>
+  </form>
+  <a href="{{ url_for('palavras_list') }}" class="btn btn-outline-light mt-3">Lista de palavras</a>
+</div>
+
+{% endblock %}

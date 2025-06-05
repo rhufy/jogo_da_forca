@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<div class="container bg-dark text-white p-4 mt-5 rounded shadow-lg w-75 mx-auto fade-in">
+  <h2 class="mb-4 text-center">Vamos jogar!!</h2>
+
+  <h4 class="text-center">
+    {{ session.get('name', 'Jogador') }}, restam
+    <span class="badge bg-warning text-dark">{{ session['tentativas'] }}</span>
+    tentativa{{ 's' if session['tentativas'] > 1 else '' }}!
+  </h4>
+
+  <h5 class="mt-4">Letras tentadas:</h5>
+  <div class="mb-3">
+    {% for letra in session['letras_tentadas'] %}
+      <span class="badge bg-secondary me-1">{{ letra }}</span>
+    {% else %}
+      <span class="text-muted">Nenhuma ainda</span>
+    {% endfor %}
+  </div>
+
+  <h5 class="mb-4">Progresso: <span class="fw-bold">{{ oculta }}</span></h5>
+
+  <form method="post" class="mb-4">
+    <div class="mb-3">
+      <label for="letra" class="form-label">Digite uma letra:</label>
+      <input type="text" id="letra" name="letra" maxlength="1"
+             class="form-control w-25 bg-dark text-white border-light"
+             placeholder="Ex: A">
+    </div>
+    <button type="submit" class="btn btn-success">Enviar</button>
+    <a href="{{ url_for('reiniciar') }}" class="btn btn-outline-light ms-3">Reiniciar jogo</a>
+  </form>
+</div>
+
+{% endblock %}
